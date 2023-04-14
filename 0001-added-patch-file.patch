@@ -1,0 +1,120 @@
+From 795b45cf64190e39cc28c06612f8478d401ecdde Mon Sep 17 00:00:00 2001
+From: Divesh-Mehta <thethunderkid420@gmail.com>
+Date: Fri, 14 Apr 2023 22:14:20 +0530
+Subject: [PATCH] added patch file
+
+---
+ 0001-removed.patch | 101 +++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 101 insertions(+)
+ create mode 100644 0001-removed.patch
+
+diff --git a/0001-removed.patch b/0001-removed.patch
+new file mode 100644
+index 0000000..c2ed8bd
+--- /dev/null
++++ b/0001-removed.patch
+@@ -0,0 +1,101 @@
++From a56864a1c3f5390cd1e9f435b4d6cc183c9aafd4 Mon Sep 17 00:00:00 2001
++From: Divesh-Mehta <thethunderkid420@gmail.com>
++Date: Fri, 14 Apr 2023 22:12:29 +0530
++Subject: [PATCH] removed
++
++---
++ 0001-updated-the-client.patch       |  46 ----------------------------
++ __pycache__/client3.cpython-311.pyc | Bin 1920 -> 0 bytes
++ 2 files changed, 46 deletions(-)
++ delete mode 100644 0001-updated-the-client.patch
++ delete mode 100644 __pycache__/client3.cpython-311.pyc
++
++diff --git a/0001-updated-the-client.patch b/0001-updated-the-client.patch
++deleted file mode 100644
++index 6a470cf..0000000
++--- a/0001-updated-the-client.patch
+++++ /dev/null
++@@ -1,46 +0,0 @@
++-From 2ff9eb4cfb8af4374306e8df48f29ea1f49bd773 Mon Sep 17 00:00:00 2001
++-From: Divesh-Mehta <thethunderkid420@gmail.com>
++-Date: Fri, 14 Apr 2023 21:48:15 +0530
++-Subject: [PATCH] updated the client
++-
++----
++- client3.py | 8 ++++++--
++- 1 file changed, 6 insertions(+), 2 deletions(-)
++-
++-diff --git a/client3.py b/client3.py
++-index 3fc09b7..957c640 100644
++---- a/client3.py
++-+++ b/client3.py
++-@@ -35,14 +35,16 @@ def getDataPoint(quote):
++-     stock = quote['stock']
++-     bid_price = float(quote['top_bid']['price'])
++-     ask_price = float(quote['top_ask']['price'])
++--    price = bid_price
++-+    price = (bid_price+ask_price)/2
++-     return stock, bid_price, ask_price, price
++- 
++- 
++- def getRatio(price_a, price_b):
++-     """ Get ratio of price_a and price_b """
++-     """ ------------- Update this function ------------- """
++--    return 1
++-+    if (price_b == 0):
++-+        return
++-+    return price_a/price_b
++- 
++- 
++- # Main
++-@@ -52,8 +54,10 @@ if __name__ == "__main__":
++-         quotes = json.loads(urllib.request.urlopen(QUERY.format(random.random())).read())
++- 
++-         """ ----------- Update to get the ratio --------------- """
++-+        prices = {}
++-         for quote in quotes:
++-             stock, bid_price, ask_price, price = getDataPoint(quote)
++-+            prices[stock] = price
++-             print("Quoted %s at (bid:%s, ask:%s, price:%s)" % (stock, bid_price, ask_price, price))
++- 
++-         print("Ratio %s" % getRatio(price, price))
++--- 
++-2.38.1.windows.1
++-
++diff --git a/__pycache__/client3.cpython-311.pyc b/__pycache__/client3.cpython-311.pyc
++deleted file mode 100644
++index 4138c3a9a69305b3a91b11e2d856d623c2d78ba3..0000000000000000000000000000000000000000
++GIT binary patch
++literal 0
++HcmV?d00001
++
++literal 1920
++zcmaJBO>YxNbjIFYuVXujLp~bfRzoXVjBpYsLWC%kLt`oqO%o`HtX!;(XOe8<c+Kt_
++zgquh{^srPMTnPzFrBY6mHW$<joKPz91H8x*)=HHk^~B9mddjJ9)^R?N%6z<eZ|2SW
++zp7|{j=|Iq4Y+R(<L4^L{M7u@yk=<7qp~r|KigQS5tysYx?Nj{JrwG)qh*bCyDH0U{
++z2AE8xRUf}^yz(IygxSHwryyqwW~&{irqTCXN(lJSO1RCz{3~r6&}L_Q_vp%m&90+#
++z8wWXf<xmrBZ?%umalOZ>&F%xXBgoSa+*hJOq#>n;MZtp+<pgM!*oos((*i<DuhOUV
++zD+6qR^|0P4kO-U~(E#iH1yh;z0SvN!fE{cAVCdK2aTypr9QAI50R}+Iz*C6tmKS4g
++zYDq%xc?LKBp!hmu?K+A_-f^ax(y3+3Dol=y<n*kXTh>i$a$<C1bmUHv8TT)1^wJL-
++z+P@ID>_P0{7Fdt`Fn6B-c#MK*9b^sy-fA1zI>HTSzQZ%>Kg5swv*CO1mT<`Vfm{A{
++z-@3m9im6x%A+#Z^W4^O4EDGSIRJuTB4V@OVjHtOBv6dOhGe#LDchy{xnZ(k`63a6~
++zwSa?A)lv((mbZv2nwFkjbpw`O$Si2o6$^%zWi47YSKskK$FVCe=5*DHi>`R5s9Vh7
++zv2lZNA=Bay0&fd7AR)*U0TABy)a+#XhRF;w4OUsp>2LFF+R*N@^fWV9L2G)Yutx4`
++zhE-H^1WaN^-dxrSBtaH+LtSF&){+3WY{I<95*DaRB-7cP#`4zqaN)iiUSifXxHQXM
++zGWdfb+y(_e8SMyDjc~N`#lx9$>hJEp3aehN_kX^5uiii6bdT1%N6T0LXS)&UuiSSc
++zWb>30{;Zs8gt{y7>ijdY7E08F#4boj*@HR+g5zGjd;*A9FPP%}-@r$G*P(vaG0z@k
++z%wPJHe9bHZ3DI<-FA^_|8I`Dcx{ogqgG-$G9mRcaVE??0ESUU^5QBddt_%UV#w8iO
++zK%RwZehi@Hyxdhu{uH*u4Y|{n8lj%bg$I{w!byXFAg-Lrtf^W)lPLw}cw#9j1&L~r
++zGmzTJl5~zhuqR9Mxt2|ndpKT_Jx%1a86R|o6;sc<k^xrhYi?)J$mO(!VS~ZDGA&nX
++z(XKdmBXw=w#WP-RJR7;<yt>9R8CTFC=dK7cmY9n(t_YPzO*hb%5&$WBfq@#Rgf-Q2
++z1%s*7mApbUUCE1#Y4HEtD@y|+j12yndZp-9G?Yb@Z*ZTzknPD+Yw%uj>`NmKd;B4r
++z3jmvbjB)cU!r^j=_XdiTz1~25wf1OAD0r?c!XnCL+>`=%xQPxxuZV}5=m7K}A#9i4
++z_y=qL!JSCd{;qPma=MCtKJ)0zgWC^pH&KT;?g1M&qC=J5M<=USp3J<BjlGGDJwN|q
++z>d&d|$hP!4@>kdEE@ynUK0fQj=IXJzx3QaVVmF=Gt$OU16P>R|=WS_6{;Cl@0a@+?
++z3;aQfThLB5l9!&xUNR>+T~AIs;bA*fxmeYn^)+Ir>?@V?559pXVyEoX%OdaF8t=6^
++zWq+jAT5I$yIN@wPoUM6dM~>K{y;7a1PHd*0op*+k^`WHGnRMi_x;$3%MspAeC&BZk
++J(00?y!GEb6<D38h
++
++-- 
++2.38.1.windows.1
++
+-- 
+2.38.1.windows.1
+
